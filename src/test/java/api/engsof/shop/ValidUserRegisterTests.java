@@ -23,12 +23,23 @@ class ValidUserRegisterTests {
 	private ClienteService clienteService;
 
 	@Test
-	@DisplayName("user must be registered")
-	public void cadastroValidoUsuario() {
+	@DisplayName("usuario com campos obrigatorios e opcionais preenchidos")
+	public void usuarioComTodosCamposPreenchidosTest() {
 		Cliente cliente = new Cliente(
 			"Eduardo Borges",
 			"borgessedu@gmail.com",
 			"38999311955"
+		);
+		Mockito.when(clienteService.cadastrarCliente(cliente)).thenReturn(new Cliente());
+	}
+
+	@Test
+	@DisplayName("usuario com campos obrigatorios preenchidos")
+	public void usuarioComCamposObrigatoriosPreenchidosTest() {
+		Cliente cliente = new Cliente(
+				"Eduardo Borges",
+				"",
+				"38999311955"
 		);
 		Mockito.when(clienteService.cadastrarCliente(cliente)).thenReturn(new Cliente());
 	}

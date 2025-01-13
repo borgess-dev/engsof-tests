@@ -1,7 +1,7 @@
 package api.engsof.shop;
 
 import api.engsof.shop.entities.Cliente;
-import api.engsof.shop.exceptions.NullParameterException;
+import api.engsof.shop.exceptions.FieldCannotBeNull;
 import api.engsof.shop.exceptions.StringMustHaveContent;
 import api.engsof.shop.repositories.ClienteRepository;
 import api.engsof.shop.services.ClienteService;
@@ -26,18 +26,18 @@ public class InvalidUserRegisterTests {
 
     @Test
     @DisplayName("usuario com telefone null nao deve ser cadastrado")
-    public void cadastroUsuarioComTelefoneNull() {
+    public void cadastroUsuarioComTelefoneNullTest() {
         Cliente cliente = new Cliente(
                 "Eduardo Borges",
                 "borgessedu@gmail.com",
                 null
         );
-        assertThrows(NullParameterException.class, () -> Mockito.when(clienteService.cadastrarCliente(cliente)));
+        assertThrows(FieldCannotBeNull.class, () -> Mockito.when(clienteService.cadastrarCliente(cliente)));
     }
 
     @Test
     @DisplayName("usuario com telefone vazio nao deve ser cadastrado")
-    public void cadastroUsuarioComTelefoneVazio() {
+    public void cadastroUsuarioComTelefoneVazioTest() {
         Cliente cliente = new Cliente(
                 "Eduardo Borges",
                 "borgessedu@gmail.com",
@@ -48,7 +48,7 @@ public class InvalidUserRegisterTests {
 
     @Test
     @DisplayName("usuario sem nome nao deve ser cadastrado")
-    public void cadastroUsuarioComNomeVazio() {
+    public void cadastroUsuarioComNomeVazioTest() {
         Cliente cliente = new Cliente(
                 "",
                 "borgessedu@gmail.com",
@@ -59,13 +59,13 @@ public class InvalidUserRegisterTests {
 
     @Test
     @DisplayName("usuario sem nome nao deve ser cadastrado")
-    public void cadastroUsuarioComNomeNull() {
+    public void cadastroUsuarioComNomeNullTest() {
         Cliente cliente = new Cliente(
                 null,
                 "borgessedu@gmail.com",
                 "38999311955"
         );
-        assertThrows(NullParameterException.class, () -> Mockito.when(clienteService.cadastrarCliente(cliente)));
+        assertThrows(FieldCannotBeNull.class, () -> Mockito.when(clienteService.cadastrarCliente(cliente)));
     }
 
 
