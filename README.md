@@ -1,7 +1,7 @@
 # Trabalho de Engenharia de Software
 ### Testes para cadastro de cliente.
 
-#### Realizado por: Eduardo José Borges
+#### Realizado por: Eduardo José Borges e Pedro Henrique Neres de Souza
 
 ## Testes para o caminho feliz:
 
